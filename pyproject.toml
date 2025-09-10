@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "y"
+version = "0.1.0"
+description = "some description"
+authors = ["Bruno Grobelšek <bruno.grobelsek@hotmail.com>"]
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.95.2"
+requests = "^2.32.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-html = "^4.1.1"
+pytest-xdist = "^3.6.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[pytest]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(message)s"

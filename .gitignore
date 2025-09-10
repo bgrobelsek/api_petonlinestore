@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment
+.env
+
+# Virtual environments (if used locally)
+venv/
+
+# Test / coverage
+.pytest_cache/
+htmlcov/
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
