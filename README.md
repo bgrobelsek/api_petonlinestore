@@ -1,5 +1,7 @@
 # Petstore API Test Automation Framework
 
+Note: The Swagger Petstore APIs can be flaky, which is why some tests are marked with xfail or xpass to handle expected failures or intermittent behavior.
+
 This repository contains a comprehensive Test Automation Framework (TAF) designed to validate key API endpoints of the [Swagger Petstore](https://petstore.swagger.io/). The framework ensures the quality and stability of core API functionality through automated testing with Python and pytest.
 
 ## 🎯 Overview
@@ -10,6 +12,7 @@ The framework provides automated testing capabilities for the Swagger Petstore A
 - Data integrity testing
 - Error handling verification
 - Authentication and authorization testing
+
 
 ## 🛠️ Technology Stack
 
@@ -105,7 +108,7 @@ The framework provides automated testing capabilities for the Swagger Petstore A
 
 The framework uses pytest markers to categorize tests:
 
-- **`@pytest.mark.smoke`** - Quick validation tests for basic functionality
+- **`@pytest.mark.integration`** - Quick validation tests for basic functionality
 - **`@pytest.mark.regression`** - Comprehensive tests covering all endpoints
 
 ## 🔧 Configuration
@@ -125,13 +128,12 @@ The framework is designed to integrate with CI/CD pipelines:
 3. **Test Execution**: Run pytest with appropriate markers and reporting
 4. **Artifact Collection**: Save HTML reports and logs
 
-### Example CI Configuration
+It uses GitHub Actions to automatically run tests on every push or pull request to the main branch.
 
-```yaml
-- name: Run Tests
-  run: |
-    poetry install
-    poetry run pytest --html=reports/report.html -m smoke
-  env:
-    PETSTORE_API_KEY: ${{ secrets.PETSTORE_API_KEY }}
-```
+Workflow steps:
+ - Checkout code
+ - Set up Python 3.12
+ - Install Poetry 1.5.1 and dependencies
+ - Run integration tests with pytest, using PETSTORE_API_KEY from GitHub Secrets
+
+This ensures code quality and framework stability before merging changes.
