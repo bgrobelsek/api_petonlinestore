@@ -46,9 +46,13 @@ def test_get_existing_pet_returns_200(session, base_url, pet_payload):
     assert response_data['status'] == pet_payload['status']
 
 
+@pytest.mark.regression
 @pytest.mark.parametrize("invalid_id, expected_status", [
     pytest.param(999999999, 404, marks=pytest.mark.xfail(reason="Swagger Petstore demo API may return 200 for nonexistent IDs")),
-    (-1, 404),          # negative ID
+    (-1, 404),
+    ("abc", 404),
+    (True, 404),
+    (False, 404),
 ])
 def test_get_nonexistent_pet_returns_404(session, base_url, invalid_id, expected_status):
     """

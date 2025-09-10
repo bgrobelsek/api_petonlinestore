@@ -91,7 +91,7 @@ The framework provides automated testing capabilities for the Swagger Petstore A
 4. **Run specific test markers:**
    ```bash
    # Smoke tests
-   poetry run pytest -m smoke
+   poetry run pytest -m integration
    
    # Regression tests
    poetry run pytest -m regression

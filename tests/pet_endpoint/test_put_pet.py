@@ -1,5 +1,6 @@
 import pytest
 
+
 @pytest.mark.regression
 @pytest.mark.xfail(reason="Swagger Petstore demo API does not consistently persist updates")
 def test_put_pet_updates_existing_pet(session, base_url, pet_payload):
@@ -32,20 +33,17 @@ def test_put_pet_updates_existing_pet(session, base_url, pet_payload):
     created_pet = create_response.json()
     pet_id = created_pet["id"]
 
-
     # Step 2: Verify creation
     get_response = session.get(f"{base_url}/pet/{pet_id}", timeout=5)
     new_pet_json = get_response.json()
     assert get_response.status_code == 200 or get_response.status_code == 404
     assert new_pet_json["name"] == pet_payload["name"]
     
-
     # Step 3: Update
     new_pet_json["name"] = "Better_Doggo"
     new_pet_json["status"] = "sold"
     put_response = session.put(f"{base_url}/pet", json=new_pet_json)
     assert put_response.status_code == 200
-
 
     # Step 4: Verify update
     get_updated = session.get(f"{base_url}/pet/{pet_id}")

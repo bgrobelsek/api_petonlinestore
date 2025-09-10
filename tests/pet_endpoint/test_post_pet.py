@@ -89,6 +89,7 @@ def test_post_pet_invalid_inputs(session, base_url, pet_payload, field, value, e
     - value: The value to assign to the field for testing.
     - expected_status: The expected HTTP status code for this test case.
     """
+    
     pet_payload[field] = value
     response = session.post(f"{base_url}/pet", json=pet_payload)
     assert response.status_code == expected_status
