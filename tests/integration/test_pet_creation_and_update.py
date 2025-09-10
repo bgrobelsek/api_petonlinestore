@@ -1,6 +1,6 @@
 import pytest
 
-@pytest.mark.smoke
+@pytest.mark.integration
 def test_pet_creation_and_update(session, base_url, pet_payload):
     """
     Integration test for creating and updating a pet in the Swagger Petstore API.
