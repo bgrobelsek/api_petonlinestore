@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "petstore api testing"
+name = "api_petonlinestore"
 version = "0.1.0"
 description = "A simple showcase for testing API's"
 authors = ["Bruno Grobelšek <bruno.grobelsek@hotmail.com>"]
