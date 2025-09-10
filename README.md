@@ -8,7 +8,7 @@ This repository contains a comprehensive Test Automation Framework (TAF) designe
 ## 🎯 Overview
 
 The framework provides automated testing capabilities for the Swagger Petstore API, focusing on:
-- Pet management operations (CRUD)
+- Pet management operations
 - API endpoint validation
 - Data integrity testing
 - Error handling verification
@@ -22,8 +22,8 @@ The framework provides automated testing capabilities for the Swagger Petstore A
 - **requests** - HTTP library for API calls
 - **FastAPI** - Web framework for development/mocking
 - **Poetry** - Dependency management
-- **pytest-html** - HTML test reporting   CHECK
-- **pytest-xdist** - Parallel test execution   CHECK
+- **pytest-html** - HTML test reporting   
+- **pytest-xdist** - Parallel test execution
 
 ## 📁 Project Structure
 
