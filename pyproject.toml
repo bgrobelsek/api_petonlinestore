@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "y"
+name = "petstore api testing"
 version = "0.1.0"
-description = "some description"
+description = "A simple showcase for testing API's"
 authors = ["Bruno Grobelšek <bruno.grobelsek@hotmail.com>"]
 readme = "README.md"
 
@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.9"
 fastapi = "^0.95.2"
 requests = "^2.32.3"
+python-dotenv = "^1.0.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"

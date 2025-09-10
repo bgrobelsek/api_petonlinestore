@@ -25,10 +25,10 @@ The framework provides automated testing capabilities for the Swagger Petstore A
 
 ```
 ├── README.md              # Project documentation
+├── requirements.txt       # Dependencies for running the tests without poetry
 ├── pyproject.toml         # Poetry configuration and dependencies
 ├── pytest.ini            # Pytest configuration
 ├── conftest.py           # Shared fixtures and test configuration
-├── .env                  # Environment variables (API keys)
 ├── .env.example          # Template for environment variables
 ├── .gitignore           # Git ignore patterns
 ├── tests/               # Test modules directory
@@ -108,14 +108,6 @@ The framework uses pytest markers to categorize tests:
 - **`@pytest.mark.smoke`** - Quick validation tests for basic functionality
 - **`@pytest.mark.regression`** - Comprehensive tests covering all endpoints
 
-### Test Structure
-
-Tests are organized by functionality and include:
-- **Pet Operations**: Create, Read, Update, Delete pets
-- **Data Validation**: Schema validation and data integrity
-- **Error Handling**: Invalid requests and edge cases
-- **Authentication**: API key validation
-
 ## 🔧 Configuration
 
 ### Environment Variables
@@ -123,45 +115,6 @@ Tests are organized by functionality and include:
 | Variable | Description | Required |
 |----------|-------------|----------|
 | `PETSTORE_API_KEY` | API key for Petstore authentication | Yes |
-
-### pytest Configuration
-
-The framework is configured in `pytest.ini`:
-- Test discovery in `tests/` directory
-- Custom markers for test categorization
-- Logging configuration for debugging
-
-### Fixtures
-
-Common fixtures are defined in `conftest.py`:
-
-- **`base_url`** - Petstore API base URL
-- **`api_key`** - API authentication key
-- **`session`** - Configured requests session with headers
-- **`pet_payload`** - Default pet data for testing
-
-## 📊 Reporting
-
-### HTML Reports
-
-Generate detailed HTML test reports:
-```bash
-poetry run pytest --html=reports/report.html --self-contained-html
-```
-
-Reports include:
-- Test execution summary
-- Pass/fail status for each test
-- Detailed error messages and stack traces
-- Test duration and performance metrics
-
-### Console Output
-
-The framework provides structured console output with:
-- Test progress indicators
-- Real-time pass/fail status
-- Summary statistics
-- Detailed error information for failed tests
 
 ## 🔄 Continuous Integration
 
@@ -182,52 +135,3 @@ The framework is designed to integrate with CI/CD pipelines:
   env:
     PETSTORE_API_KEY: ${{ secrets.PETSTORE_API_KEY }}
 ```
-
-## 📈 Best Practices
-
-### Test Design
-- Use descriptive test names that explain the scenario
-- Implement proper test data setup and cleanup
-- Utilize fixtures for common test dependencies
-- Group related tests using pytest markers
-
-### Maintenance
-- Keep test data isolated and independent
-- Use configuration files for test parameters
-- Implement proper error handling and logging
-- Regular updates to dependencies and test cases
-
-### Debugging
-- Use verbose output (`-v -s`) for detailed test information
-- Check logs for API request/response details
-- Utilize pytest's built-in debugging capabilities
-- Review HTML reports for comprehensive test analysis
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/new-test`)
-3. Add your tests following the established patterns
-4. Ensure all tests pass (`poetry run pytest`)
-5. Submit a pull request with a clear description
-
-### Code Style
-- Follow PEP 8 Python style guidelines
-- Use meaningful variable and function names
-- Add docstrings to fixtures and complex test functions
-- Keep test methods focused on single scenarios
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 📞 Support
-
-For questions, issues, or contributions:
-- Open an issue on GitHub
-- Review existing documentation
-- Check test logs and reports for debugging information
-
----
-
-**Note**: This framework is designed for testing the public Swagger Petstore API. Ensure you have proper authorization and follow the API's terms of service when running tests.
