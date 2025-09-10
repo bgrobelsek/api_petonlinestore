@@ -1,8 +1,9 @@
 # Petstore API Test Automation Framework
 
-Note: The Swagger Petstore APIs can be flaky, which is why some tests are marked with xfail or xpass to handle expected failures or intermittent behavior.
 
 This repository contains a comprehensive Test Automation Framework (TAF) designed to validate key API endpoints of the [Swagger Petstore](https://petstore.swagger.io/). The framework ensures the quality and stability of core API functionality through automated testing with Python and pytest.
+
+**Note:** The Swagger Petstore APIs can be flaky, which is why some tests are marked with xfail or xpass to handle expected failures or intermittent behavior.
 
 ## 🎯 Overview
 
