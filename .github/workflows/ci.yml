@@ -30,4 +30,4 @@ jobs:
     - name: Run tests
       env:
         PETSTORE_API_KEY: ${{ secrets.PETSTORE_API_KEY }}
-      run: poetry run pytest -m integration
+      run: poetry run pytest -m regression
